@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "AppNLU_Schedule",
+    "slug": "AppNLU_Schedule",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "newArchEnabled": true,
+      "useLegacyBridge": false
+    },
+    "ios": {
+      "newArchEnabled": true
+    }
+  }
+}

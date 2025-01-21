@@ -11,11 +11,11 @@ import Extensions from './Extensions';
 import About from './About';
 import {colors, buttonStyles} from '../BaseStyle/Style';
 
-const NotificationStack = createStackNavigator();
+const NotificationStack = createStackNavigator(); //tạo ngăn điều hướng qly màn hình
 
 const NotificationStackScreen = () => (
   <NotificationStack.Navigator screenOptions={{ headerShown: false}} >
-  <NotificationStack.Screen name="Tất cả thông báo" component={Notification} />
+  <NotificationStack.Screen name="Tất cả thông báo" component={Notification} /> 
   <NotificationStack.Screen name="Thông Báo Chi Tiết" component={NotificationDetail} options={{ headerShown: true }}  />
 </NotificationStack.Navigator>
 
@@ -48,6 +48,7 @@ const MenuPane = () => {
           return <Icon name={iconName} size={iconSize} color="#000" />;
         },
       })}
+      //thanh điều hướng dưới cùng 4 tab
     >
       <Tab.Screen name="Lịch học" component={Schedule} />
       <Tab.Screen name="Tiện ích" component={Extensions}/>
@@ -56,5 +57,5 @@ const MenuPane = () => {
     </Tab.Navigator>
   );
 };
-
+//
 export default MenuPane;

@@ -179,8 +179,8 @@ export default function RegisterClass() {
             } else {
                 Toast.show({
                     type: 'error',
-                    text1: 'Có lỗi xảy ra!',
-                    text2: 'Không thể lấy dữ liệu từ trang ĐKMH',
+                    text1: 'Không thể đăng ký!',
+                    text2: 'Chưa thanh toán học phí',
                     visibilityTime: 2000,
                     autoHide: true,
                 });
@@ -270,6 +270,9 @@ export default function RegisterClass() {
                     <View style={[styles.rowDetails, { backgroundColor: 'lightgray'}]}>
                         <Text style={styles.textDetails}>Số lượng: {subjectClass.studentNum}</Text>
                         <Text style={styles.textDetails}>Còn lại: {subjectClass.remainingQty}</Text>
+                    </View>
+                    <View style={[styles.rowDetails, { backgroundColor: 'lightgray'}]}>
+                        <Text style={styles.textDetails}>GV: {subjectClass.teacher.name}</Text>
                     </View>
                     {/* <View style={[styles.rowDetails, { backgroundColor: '#eeeeee', borderBottomLeftRadius: 10, borderBottomRightRadius: 10}]}>
                         <Text style={[styles.textDetails,]}>Chi tiết: {subjectClass.id}</Text>
@@ -551,7 +554,7 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        backgroundColor: 'lightgray',
+        backgroundColor: '#B4E1B1',
         marginTop: 5,
         marginBottom: 5,
         paddingTop: 10,

@@ -36,7 +36,7 @@ export default function LearningFee() {
         
         // Thêm giá trị tùy chỉnh vào đầu danh sách
         const formattedData = [
-          customValue, // Giá trị tùy chỉnh
+          customValue, // thêm mục tuyd chọn all học kỳ vào ds
           ...semesters.map(semester => ({
             label: `${semester.name}`,
             value: semester.id,
@@ -44,7 +44,7 @@ export default function LearningFee() {
         ];
         setData(formattedData);
         if (formattedData.length > 1) {
-          setSelectedValue(formattedData[0].value); 
+          setSelectedValue(formattedData[0].value); // đặt gtri mặc định all học kỳ
         }
       } catch (error) {
         Toast.show({
@@ -62,10 +62,10 @@ export default function LearningFee() {
       setIsLoading(true); // Đặt isLoading thành true khi bắt đầu lấy dữ liệu
       try {
         let data;
-        if(queryFilter==='semesters') data = await getLearningFeeAll();
-        else data = await getLearningFee(queryFilter);
+        if(queryFilter==='semesters') data = await getLearningFeeAll();// lấy học phí tc hky
+        else data = await getLearningFee(queryFilter);// lấy học phí theo hky
         if (data) {
-          setLeanrningFees(data); 
+          setLeanrningFees(data); // câp nhật trthai vs data api
         } else {
           Toast.show({
             type: 'error',
@@ -145,7 +145,7 @@ export default function LearningFee() {
         );
       };
 
-    const AllSemesterLearningFeeContainer = ({ item }) => {
+    const AllSemesterLearningFeeContainer = ({ item }) => { //hthi ds học phí của all học kỳ
       console.log("render all semester fee");
       return (
         <View style={styles.examScheduleContainer}>
@@ -186,7 +186,7 @@ export default function LearningFee() {
       );
     };
 
-    const SemesterLearningFeeContainer = ({ item }) => {
+    const SemesterLearningFeeContainer = ({ item }) => { // hiển thị tổng học phí chi tiết từng môn học trong ky đã chọn
       console.log("render semester fee");
       const totalMoney = item.reduce((total, subjectFee) => {
         return total + (subjectFee.subject.credit * subjectFee.priceUnit - subjectFee.discountMoney);
